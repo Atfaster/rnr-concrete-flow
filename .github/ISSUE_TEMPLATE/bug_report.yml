@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible problem with RNR Concrete Flow
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: RNR Concrete Flow version
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Minecraft, Forge, TFC, and RNR versions
+    validations:
+      required: true
+  - type: dropdown
+    id: side
+    attributes:
+      label: Environment
+      options:
+        - Dedicated server
+        - Singleplayer
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or crash report
+      description: Attach the complete latest.log or crash report.
