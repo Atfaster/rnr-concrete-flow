@@ -6,6 +6,10 @@ large concrete-road construction without bypassing its material cost.
 ## What it changes
 
 - One concrete bucket fills up to 25 nearest connected road foundations.
+- Additional concrete can extend an existing wet-concrete area without paying
+  again for blocks that are already wet.
+- Refills cost 40 mB per new block. Each normal click uses at most one bucket,
+  while larger containers retain their unused contents for repeated clicks.
 - Concrete follows narrow roads, turns, branches, and stepped downhill slopes.
 - Blocked directions no longer waste part of the bucket.
 - Spread speed is configurable and defaults to RNR's original 10-tick delay.

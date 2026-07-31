@@ -38,6 +38,34 @@ Test with the minimum and newest supported RNR/TFC versions.
 9. Unload a dimension during a long configured delay and verify no task leaks.
 10. Toggle every config option and restart.
 
+## Extending existing wet concrete
+
+Use both the RNR metal bucket and TFC fluid containers.
+
+- 39 mB: no block is reserved and no fluid is consumed.
+- 40 mB: one block is filled.
+- 100 mB: two blocks are filled and 20 mB remains.
+- 999 mB: 24 blocks are filled and 39 mB remains.
+- 1,000 mB: 25 blocks are filled.
+- Normal-click a 10,000 mB TFC barrel: at most 25 blocks are filled and
+  9,000 mB remains when enough foundations are reachable.
+- Repeat normal clicks with the same 10,000 mB barrel: each click fills at most
+  25 blocks and ten successful full clicks consume the barrel.
+- Sneak-click concrete, water, and another non-concrete fluid container and
+  verify the addon's handler does not intercept their original behavior.
+- If only 17 foundations are reachable, consume only 680 mB.
+- With no reachable foundation, consume nothing and do not place a concrete
+  fluid block above the road.
+- Refill a wet area whose original spread is still active.
+- Have two players refill the same active area in quick succession.
+- Join two independently active wet areas and verify no foundation is filled or
+  charged twice.
+- Break a reserved frontier parent and verify neither it nor dependent blocks
+  are restored.
+- Repeat the metal-bucket cases from a client without this addon. A temporary
+  client prediction is acceptable only if the server immediately corrects it;
+  the final world state and fluid amount must be authoritative.
+
 ## Landslides
 
 - No horizontal supports: the RNR road block may slide.

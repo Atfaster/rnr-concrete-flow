@@ -10,6 +10,10 @@ less wasteful and easier to build on slopes.
 ## Features
 
 - Fills up to 25 nearest connected road foundations from one concrete bucket.
+- Lets additional concrete extend an existing connected wet-concrete area.
+- Uses 40 mB per newly filled block and preserves sub-40 mB remainders.
+- Limits every normal refill click to 1,000 mB. Large containers can be clicked
+  repeatedly while retaining their unused concrete.
 - Uses breadth-first spreading, so blocked branches do not waste concrete.
 - Follows cardinally connected foundations and descends stepped slopes.
 - Never climbs upward, crosses gaps, or force-loads chunks.
@@ -45,6 +49,23 @@ directory.
 
 Changing `enableConnectedConcreteFlow` to `false` cancels active custom flow
 tasks and restores RNR's original behavior for future scheduled ticks.
+
+## Extending wet concrete
+
+Right-click a connected wet-concrete road block with a fluid container holding
+RNR concrete. Existing wet blocks form a free starting area; only newly filled
+foundations consume concrete.
+
+- Each new block costs 40 mB.
+- A normal right-click uses at most 1,000 mB (25 blocks).
+- Sneak-right-click is left entirely to the container's original behavior.
+- Any remainder below 40 mB stays in the container.
+- Only concrete for foundations reachable and reserved at interaction time is
+  drained.
+
+For example, 100 mB fills two blocks and leaves 20 mB. Each normal click with a
+10,000 mB TFC barrel can fill at most 25 blocks, so a full barrel takes up to
+ten clicks.
 
 ## Building
 
